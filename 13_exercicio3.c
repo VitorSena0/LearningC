@@ -61,12 +61,102 @@ void mediaSalarios(){
     printf("\n\nA media de salarios eh de: %.2f\nO maior salario eh: %.2f\nO menor salario eh: %.2f\n", mediaSalarios, maiorSalario, menorSalario);
 };
 
+/*Faça um programa para encontrar o menor número inteiro que seja divisível por todos os
+números inteiros entre 1 e 10.*/
+void mmc(){
+    printf("\n-----------[mmc de 1 a 10]-----------\n\n");
+    int num = 8, achou = 0;
+    unsigned int ehDivisivel = 0;
+    while(!achou){
+        for(int i = 1; i <=10; i++ ){
+            if(num % i == 0){
+                ehDivisivel += 1;
+            }else{
+                ehDivisivel = 0;
+                break;
+            };
+        };
+        if(ehDivisivel == 10 ){
+            achou = 1;
+        };
+        num += 2;// Pois assim corta pela metade as tentativas, testando apneas os pares, ficando mais eficiente
+    };
+printf("O numero encontrado foi: %d", num-1);
+};
+
+/*Escreva um programa para ler as coordenadas (X,Y) de uma quantidade indeterminada de
+pontos no sistema cartesiano. Para cada ponto escrever o quadrante a que ele pertence. O algoritmo
+será encerrado quando pelo menos uma de duas coordenadas for NULA (nesta situação sem
+escrever mensagem alguma).
+Exemplo de entrada:
+2 2
+3 -2
+-8 -1
+-7 1
+0 2
+Exemplo de saída:
+primeiro
+quarto
+terceiro
+segundo
+*/
+void coordenadas(){
+    int x, y;
+    printf("Digite as coordenadas: \n");
+    while(x != 0 & y != 0){
+        scanf("%d %d", &x, &y);
+        if(x == 0 | y == 0) break;
+        if(x > 0 & y > 0) printf("Primeiro quadrante\n");
+        if(x < 0 & y > 0) printf("Segundo quadrante\n");
+        if(x < 0 & y < 0) printf("Terceiro quadrante\n");
+        if(x > 0 & y < 0) printf("Quarto quadrante\n");
+        // Foi utlizado operadores bitwise, que comparam por bits
+        
+    };
+};
+
+void mongeGraos(){
+    //unsigned long long int num = 1;
+    long double num = 1; // foi utlizado o long double para armazenar um numero muito grande
+                        // Pois o long long int não suporta o numero de graos
+    for(int i = 1; i <= 64; i++ ){
+        num *= 2; // Multiplica por 2 a cada casa
+    };
+
+    __mingw_printf("Total de graos: %Lf", num);
+    // O __mingw_printf é utilizado para imprimir o long double no windows
+};
+
+void asteriscoPorLinha(){
+    int linhas = 10, coluna = 20;
+    for(int i = 0; i < linhas; i++){
+        for(int j = 0; j < coluna; j++){
+            printf("*");
+        };
+        printf("\n");
+    };
+};
+
+void asteriscoPorlinha2(){
+    int coluna = 20;
+    for(int i = 0; i < coluna; i++){
+        for(int j = 0; j <= i; j++){
+                printf("*");
+            };
+        printf("\n");
+        };
+    };
+
 int main(){
     //tabuada();
     //validaSenha();
     //somaNumerosImpares();
-    mediaSalarios();
-
+    //mediaSalarios();
+    //mmc();
+    //coordenadas();
+    //mongeGraos();
+    //asteriscoPorLinha();
+    //asteriscoPorlinha2();
 
     return 0;
 }
