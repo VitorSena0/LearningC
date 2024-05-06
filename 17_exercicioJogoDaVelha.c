@@ -60,11 +60,11 @@ int realizarJogada(char jogoDaVelha[3][3], int jogada, char jogador){
 }
 
 void imprimiJogo(char jogoDaVelha[3][3]){
-    printf("\n\n  1 2 3");
+    printf("\n\n      1   2   3");
     for (int i = 0; i < 3; i++){
-        printf("\n%d", i + 1);
+        printf("\n  %d", i + 1);
         for (int j = 0; j < 3; j++){
-            printf("%2c", jogoDaVelha[i][j]);
+            printf("%4c", jogoDaVelha[i][j]);
         }
     }
 }
