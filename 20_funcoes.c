@@ -59,5 +59,6 @@ int main(){
     for(int i = 0; i < 3; i++){
         printf("Soma da coluna %d: %d\n", i, arrayColunasSomadas[i]);
     }
+    free(arrayColunasSomadas);
     return 0;
 }

@@ -48,9 +48,30 @@
     strrev(): Inverte uma string. Argumento: strrev(string), retorna um ponteiro para a string invertida;
 */
 
-int main(){
+#include <locale.h> // configuração de localidade
 
+#include <ctype.h> // manipulação de caracteres - toupper, tolower, isalpha, isdigit e outras funções
+/*
+    tolower - Converte o caracter em minúsculo: tolower('A') retorna 'a'
+    toupper - Converte caracter minúsculo em maiúsculo: toupper('a') retorna 'A'
+    isalnum - Verifica se o caracter é alfanumérico: isalnum('a') retorna 1
+    isalpha - Verificar se o caracter é uma letra do alfabeto: isalpha('a') retorna 1
+    iscntrl - Verificar se o caracter é um caracter de controle: iscntrl('\n') retorna 1
+    isdigit - Verificar se o caracter é um digito decimal: isdigit('1') retorna 1
+    isgraph - Verifica se o caracter tem representação gráfica: isgraph(' ') retorna 0
+    islower - Verifica se o caracter é minúsculo: islower('a') retorna 1
+    isprint - Verifica se o caracter é imprimível: isprint(' ') retorna 1
+    ispunct - Verifica se o caracter é um caracter de pontuação: ispunct('.') retorna 1
+    isspace - Verificar se o caracter é um espaço em branco: isspace(' ') retorna 1
+    isupper - Verifica se o caracter é uma letra maiúscula: isupper('A') retorna 1
+    isxdigit - Verifica se o caracter é um dígito hexadecimal: isxdigit('F') retorna 1
+*/
+
+int main()
+{
+    int resultado;
+    resultado = iscntrl('\a');
     // https://chat.openai.com/share/6e9bff2f-f209-4a48-9b94-840505304415
-
+    printf("\nresultado: %d\n", resultado); 
     return 0;
 }
