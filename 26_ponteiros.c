@@ -70,6 +70,23 @@ void impressaoEndereco(){
     printf("Endereço de var64 (64 bits): %016lX\n", (unsigned long)(uintptr_t)ptr64);
 }
 
+void arrayReverse(int arr[],int length){
+    int *init, *end;
+    end = arr + length - 1;
+    printf("Digite %d numeros inteiros:\n", length);
+    for(init = arr; init <= end; init++){
+        scanf("%d", init);
+    }
+    printf("Array invertido:\n");
+
+    for(init = arr; init < end; init++, end--){
+        int temp = *init;
+        *init = *end;
+        *end = temp;
+    }
+
+}
+
 int main(){
     int min, max, array[] = {23, 4, 31, 98, 987, 32, 10, 123, 986, 50, 3, 4, 5}, tamanho = sizeof(array)/sizeof(array[0]);
 
@@ -85,6 +102,12 @@ int main(){
     // printf("\n%d\n", *p);
 
     ////////////////////////////////////////
+    int tamanho2 = 5;
+    int array2[tamanho2];
+    arrayReverse(array2, tamanho2);
+    for(int i = 0; i < tamanho2; i++){
+        printf("%d  ", array2[i]);
+    }
 
 
     return 0;
