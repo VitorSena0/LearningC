@@ -46,6 +46,7 @@
     strtok(): Divide uma string em tokens. Argumento: strtok(string, delimitadores), retorna um ponteiro para o token ou NULL se não houver mais tokens;
     memset(): Preenche um bloco de memória com um valor específico. Argumento: memset(buffer, valor, tamanho), retorna um ponteiro para o bloco de memória preenchido;
     strrev(): Inverte uma string. Argumento: strrev(string), retorna um ponteiro para a string invertida;
+    strcspn(): Retorna o comprimento do prefixo de uma string que não contém um conjunto de caracteres. Argumento: strcspn(string, caracteres), retorna o comprimento do prefixo da string que não contém os caracteres especificados;
 */
 
 #include <locale.h> // configuração de localidade
@@ -65,6 +66,16 @@
     isspace - Verificar se o caracter é um espaço em branco: isspace(' ') retorna 1
     isupper - Verifica se o caracter é uma letra maiúscula: isupper('A') retorna 1
     isxdigit - Verifica se o caracter é um dígito hexadecimal: isxdigit('F') retorna 1
+*/
+
+#include <stddef.h> // definições de tipos e macros
+/*
+    NULL - Representa um ponteiro nulo
+    size_t - Tipo de dado usado para representar tamanhos de objetos
+    wchar_t - Tipo de dado usado para representar caracteres de largura ampla
+    ptrdiff_t - Tipo de dado usado para representar a diferença entre dois ponteiros
+    offsetof - Retorna o deslocamento de um membro em uma estrutura
+
 */
 
 int main()

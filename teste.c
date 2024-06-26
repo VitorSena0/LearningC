@@ -40,12 +40,24 @@ int fun2(int);
 int a = 5;
 
 
+void estrutura(){
+    struct exemplo{
+        char a;
+        char e;
+        char b;
+        int c;
+        int d;
+    };
+
+    printf("Tamanho da estrutura: %d\n", sizeof(struct exemplo));
+}
 
 int main() {
     setlocale(LC_ALL, "pt_BR.UTF-8"); // Configura o ambiente para usar a configuração de local do sistema
     int a = 10;
     a = fun1(a);
-    printf("%d\n", a);
+    //printf("%d\n", a);
+    estrutura();
 
     return 0;
 }
