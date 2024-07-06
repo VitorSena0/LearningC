@@ -52,7 +52,7 @@ void estrutura(){
     printf("Tamanho da estrutura: %d\n", sizeof(struct exemplo));
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     setlocale(LC_ALL, "pt_BR.UTF-8"); // Configura o ambiente para usar a configuração de local do sistema
     int a = 10;
     a = fun1(a);

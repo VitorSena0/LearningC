@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Struct é uma forma de agrupar variáveis de tipos diferentes em um único objeto.
 
@@ -98,6 +99,83 @@ struct num inicializandoVariaveis( int a,int b){
 
     }
 
+    typedef struct {
+    int *array;
+    char *nome;
+    char letra;
+    int idade;
+    } Data;
+
+int structPonteiro_to_structPonteiro(){
+    Data x, y;
+
+    x.array = malloc(sizeof(int) * 5);
+    y.array = malloc(sizeof(int) * 5);
+
+    x.nome = "Vitor";
+    x.letra = 'V';
+    y.nome = "Leonardo";
+    y.letra = 'L';
+    x.idade = 23;
+    y.idade = 44;
+
+    printf("idade x: %d\n", x.idade);
+    printf("idade y: %d\n", y.idade);
+
+    // Verificando se a memória foi alocada com sucesso
+    if (x.array == NULL || y.array == NULL) {
+        fprintf(stderr, "Falha ao alocar memoria\n"); // stderr é a saída de erro padrão e o fprintf é usado para imprimir mensagens de erro no console
+        return 1;
+    }
+
+    // Inicializando arrays
+    for (int i = 0; i < 5; i++) {
+        x.array[i] = i;
+        y.array[i] = i + 10;
+    }
+
+    printf("Nome x: %p\n", &x.nome);
+    printf("Nome y: %p\n", &y.nome);
+    printf("Nome x: %s\n", x.nome);
+    printf("Nome y: %s\n", y.nome);
+    // Atribuindo y a x
+
+    // Liberando a memória original de x.array antes de reatribuir
+    free(x.array);
+    x = y;
+
+    // Agora x.array e y.array apontam para o mesmo bloco de memória
+    printf("Array x (apos x = y): ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", x.array[i]);
+    }
+    printf("\n");
+
+    printf("Array y: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", y.array[i]);
+    }
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("Nome x: %s\n", x.nome);
+    printf("Nome y: %s\n", y.nome);
+    printf("Letra x: %c\n", x.letra);
+    printf("Letra y: %c\n", y.letra);
+    printf("Idade x: %d\n", x.idade);
+    printf("Idade y: %d\n", y.idade);
+    printf("Idade x: %p\n", &x.idade); 
+    printf("Idade y: %p\n", &y.idade);
+
+    // Liberando a memória alocada
+    // Note que você deve liberar apenas uma vez, pois ambos apontam para o mesmo bloco
+    free(x.array);
+    free(y.array);
+
+    return 0;
+
+    }
+
 
 int main(){
 
@@ -111,7 +189,7 @@ int main(){
     // }
 
     //ponteiroParaStruct();
-    inicializacaoDesignada();
-
+    //inicializacaoDesignada();
+    //structPonteiro_to_structPonteiro();
  return 0;
 }

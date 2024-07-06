@@ -14,9 +14,9 @@ void minhaFuncao() {
 
 int main() {
     // Ponteiro para função que aceita dois inteiros e retorna um inteiro
-    int (*ponteiroSoma)(int, int);
+    int (*ponteiroSoma)(int, int) = NULL;
     // Ponteiro para função que não aceita argumentos e não retorna nada
-    void (*ponteiroFuncao2)();
+    void (*ponteiroFuncao2)() = NULL;
 
     // Atribuindo o endereço da função ao ponteiro
     ponteiroFuncao2 = &minhaFuncao;
@@ -36,7 +36,7 @@ int main() {
 
     // Usando o ponteiro para chamar a função
     int resultado = ponteiroSoma(3, 4);
-    printf("Resultado da soma: %d\n", resultado);
+    printf("Resultado da soma, diretamente: %d\n", (*ponteiroSoma)(5, 6));
 
     // Imprimindo o endereço da função
     printf("Endereco da funcao soma: %p\n", (void *)ponteiroSoma);
